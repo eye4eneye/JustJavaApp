@@ -13,31 +13,34 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
+    /** Global variable for quantity to increase and decrease **/
+    int quantity = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    /**
-     * This method is called when the order button is clicked.
-     */
-    public void submitOrder(View view) {
-        int quantity = 1;
-        display(quantity);
-        displayPrice(quantity * 5);
-    }
 
     /** This method is used for increasing the quantity value on the screen */
     public void incrementOrder(View view) {
-        int quantity = 3;
+        quantity = quantity + 1;
         display(quantity);
     }
 
     /** This method is used for decreasing the quantity value on the screen */
     public void decrementOrder(View view) {
-        int quantity = 1;
+        quantity = quantity - 1;
         display(quantity);
+    }
+
+    /**
+     * This method is called when the order button is clicked.
+     */
+    public void submitOrder(View view) {
+        display(quantity);
+        displayPrice(quantity * 5);
     }
 
 
